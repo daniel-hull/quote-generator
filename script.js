@@ -41,5 +41,15 @@ function newQuote() {
   quoteText.textContent = quote.text;
 }
 
+// Tweet Quote with pre-populated quote and author
+function tweetQuote() {
+  const twitterURL = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(twitterURL, "_blank");
+}
+
+// Adding event listeners. These generally go at the bottom to ensure all functions and variables are declared and assigned. In this case, invokes the new quote function and invokes tweeting the quote function.
+newQuoteBtn.addEventListener("click", newQuote);
+twitterBtn.addEventListener("click", tweetQuote);
+
 // On load
 getQuotes();
